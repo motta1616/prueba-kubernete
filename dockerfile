@@ -7,11 +7,11 @@ COPY src /app/src
 
 RUN gradle assemble --no-daemon
 
-FROM openjdk:17-jdk-slim
+FROM eclipse-temurin:17-jdk
 
 WORKDIR /app
 
-COPY --from=build /app/build/prueba-kubernetes-0.0.1-SNAPSHOT.jar ./app.jar
+COPY --from=build /app/build/libs/prueba-kubernetes-0.0.1-SNAPSHOT.jar ./app.jar
 
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "./app.jar"]
