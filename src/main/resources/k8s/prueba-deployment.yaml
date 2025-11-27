@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prueba-kubernete
+  labels:
+    app: prueba-kubernete
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: prueba-kubernete
+  template:
+    metadata:
+      labels:
+        app: prueba-kubernete
+    spec:
+      containers:
+      - name: prueba-kubernete
+        image: motta1616/prueba-kubernete:1.5.0
+        ports:
+        - containerPort: 8080
+        env:
+          - name: NOMBRE_POD
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "500Mi"
+          limits:
+            cpu: "300m"
