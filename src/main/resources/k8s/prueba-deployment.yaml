@@ -30,3 +30,8 @@ spec:
             memory: "500Mi"
           limits:
             cpu: "300m"
+        startupProbe:
+          httpGet:
+            port: 8080
+            path: /api/pod
+          initialDelaySeconds: 20
