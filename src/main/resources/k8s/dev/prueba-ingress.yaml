@@ -10,7 +10,7 @@ spec:
   rules:
     - http:
         paths:
-          - path: /dev-prueba-kubernete(/|$)(.*)
+          - path: /development-prueba-kubernete(/|$)(.*)
             pathType: ImplementationSpecific
             backend:
               service:
