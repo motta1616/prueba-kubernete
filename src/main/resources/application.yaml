@@ -1,1 +1,1 @@
-pod: ${NOMBRE_POD}
+pod: ${NOMBRE_POD:xxx}
