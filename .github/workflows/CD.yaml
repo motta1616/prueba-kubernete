@@ -27,7 +27,7 @@ jobs:
           image: motta1616/prueba-kubernete
           tags: ${{ github.sha }}
           registry: docker.io
-          dockerfile: Dockerfile
+          dockerfile: dockerfile
           username: motta1616
           password: Leo1075237138
 
