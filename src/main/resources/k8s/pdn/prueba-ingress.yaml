@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  namespace: pdn
+  name: prueba-kubernete
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  ingressClassName: nginx
+  rules:
+    - http:
+        paths:
+          - path: /pdn-prueba-kubernete(/|$)(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: prueba-kubernete
+                port:
+                  number: 80

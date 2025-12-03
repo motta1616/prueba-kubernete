@@ -1,6 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  namespace: dev
   name: prueba-kubernete
   labels:
     app: prueba-kubernete
@@ -27,11 +28,12 @@ spec:
         resources:
           requests:
             cpu: "100m"
-            memory: "500Mi"
+            memory: "200Mi"
           limits:
             cpu: "300m"
+            memory: "300Mi"
         startupProbe:
           httpGet:
             port: 8080
             path: /api/pod
-          initialDelaySeconds: 20
+          initialDelaySeconds: 10

@@ -1,6 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
+  namespace: dev
   name: prueba-kubernete
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /$2
@@ -9,7 +10,7 @@ spec:
   rules:
     - http:
         paths:
-          - path: /prueba-kubernete(/|$)(.*)
+          - path: /dev-prueba-kubernete(/|$)(.*)
             pathType: ImplementationSpecific
             backend:
               service:
